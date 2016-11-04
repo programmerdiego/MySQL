@@ -1,0 +1,43 @@
+/*
+ Program Name: Print table and close
+ Description:  Prints whole table and closes connection
+ Author:       Diego Sanchez
+ Version:      1.0.
+ Structure:
+		 1: Main method
+		 2: Sample run
+*/
+
+/* 1: Main Method
+-------------------------------------------------------------- */
+
+<?php
+$con= mysqli_connect( "localhost", "root", "" );
+if( $con ) {
+	$select=mysqli_select_db( $con, "diego" );
+	if( $select ) {
+	$sql="select id, book1, book2, book3, book4 from one";  
+	$query=mysqli_query( $con, $sql);
+		if ($query->num_rows > 0) {
+			echo "<table><tr><th>ID</th><th>Book1</th><th>Book2</th><th>Book3</th><th>Book4</th></tr>";
+				while($row = $query->fetch_assoc()) {
+					echo "<tr><td>" . $row["id"]. "</td><td>" . $row["book1"]. "<td>" . $row["book2"]. "<td>" . $row["book3"]. "<td>" . $row["book4"]. "</td></tr>";
+				}
+			echo "</table>";
+		} else {
+				echo "0 results";
+				}
+	}
+}
+else{
+	echo "It failed!";
+	}
+	mysqli_close($con);
+?>
+
+/* 2: Sample run
+-------------------------------------------------------------- */ 
+ID	Book1	Book2	Book3	Book4
+1	  PHP	  JSP	  ASP	  css
+2	  LAMP	J2EE	HTLM	css
+3	  yellow navy	green	 
