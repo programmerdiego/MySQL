@@ -1,6 +1,6 @@
 /*
  Program Name: Fetch array one row
- Description:  Converts row 1 into an array 
+ Description:  Returns a row as indexed array
  Author:       Diego Sanchez
  Version:      1.0.
  Structure:
