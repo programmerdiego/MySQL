@@ -30,3 +30,13 @@ else{
 /* 2: Sample run
 -------------------------------------------------------------- */ 
 The data was entered successfully!
+
+mysql> select * from one;
++----+--------+-------+--------+
+| id | book1  | book2 | book3  |
++----+--------+-------+--------+
+|  1 |  PHP   | JSP   | ASP    |
+|  2 |  LAMP  | J2EE  | HTLM   |
+|  3 | yellow | navy  | green  |
++----+--------+-------+--------+
+3 rows in set (0.00 sec)
