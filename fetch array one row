@@ -1,0 +1,31 @@
+/*
+ Program Name: Fetch array one row
+ Description:  Converts row 1 into an array 
+ Author:       Diego Sanchez
+ Version:      1.0.
+ Structure:
+		 1: Main method
+		 2: Sample run
+*/
+
+/* 1: Main Method
+-------------------------------------------------------------- */
+<?php
+$con= mysqli_connect( "localhost", "admin", "password" );
+if( $con ) {
+	$select=mysqli_select_db( $con, "database" );
+	if( $select ) {
+  $sql="select * from one";  
+	$query=mysqli_query( $con, $sql);
+	$array=mysqli_fetch_row ($query);
+	print_r($array);   
+	}
+}
+else{
+	echo "It failed!";
+	}
+?>
+
+/* 2: Sample run
+-------------------------------------------------------------- */ 
+Array ( [0] => 1 [1] => PHP [2] => JSP [3] => ASP [4] => css )
