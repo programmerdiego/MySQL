@@ -1,0 +1,75 @@
+/*
+ Program Name: Connect Select Retrieve Display
+ Description:  Displays the whole table
+ Author:       Diego Sanchez
+ Version:      1.0.
+ Structure:
+		 1: Main method
+		 2: Sample run
+*/
+
+/* 1: Main Method
+-------------------------------------------------------------- */
+<?php
+$con= mysqli_connect( "localhost", "root", "" );
+	if( $con ){
+		echo "Conntected Succesfully <br><br>";
+	}
+		$select=mysqli_select_db( $con, "diego" );
+		if ($select){
+			echo "Selected data succesfully <br><br>";
+		}
+?>
+<?php
+$sql="select id, book1, book2, book3, book4 from one";  
+$query=mysqli_query($con, $sql);
+		if ($query) {
+		echo "Retrieved data succesfully <br>";
+		}
+		while( $row = mysqli_fetch_array( $query)){
+			echo ("<br><br> ID:".$row["id"]);
+					echo ("<br><br> book1:".$row["book1"]);
+					echo ("<br><br> book2:".$row["book2"]);
+					echo ("<br><br> book3:".$row["book3"]);
+					echo ("<br><br> book4:".$row["book4"]);				
+				} 
+?>
+
+/* 2: Sample run
+-------------------------------------------------------------- */ 
+Conntected Succesfully 
+
+Selected data succesfully 
+
+Retrieved data succesfully 
+
+
+ID:1
+
+book1: PHP
+
+book2:JSP
+
+book3:ASP
+
+book4:css
+
+ID:2
+
+book1: LAMP
+
+book2:J2EE
+
+book3:HTLM
+
+book4:css
+
+ID:6
+
+book1:yellow
+
+book2:navy
+
+book3:green
+
+book4:
