@@ -1,0 +1,43 @@
+/*
+ Program Name: Retrive data
+ Description:  Retrives id and first column 
+ Author:       Diego Sanchez
+ Version:      1.0.
+ Structure:
+		 1: Main method
+		 2: Sample run
+*/
+
+/* 1: Main Method
+-------------------------------------------------------------- */
+<?php
+$con= mysqli_connect( "localhost", "admin", "password" );
+if( $con ) {
+	$select=mysqli_select_db( $con, "database" );
+	if( $select ) {
+  $sql="select id, book1 from one";
+	$query=mysqli_query( $con,$sql );
+		if( $query ) {
+		echo  " Retrieve data successfully! <br>";
+		}
+			while($row = mysqli_fetch_array($query)){
+				echo("<br> ID: ".$row["id"]);
+				echo("<br> color1: ".$row["book1"]);
+			}
+	}
+}
+else{
+	echo "It failed!";
+	}
+?>
+
+/* 2: Sample run
+-------------------------------------------------------------- */ 
+Retrieve data successfully! 
+
+ID: 1
+color1: PHP
+ID: 2
+color1: LAMP
+ID: 3
+color1: yellow
