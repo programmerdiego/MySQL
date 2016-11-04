@@ -1,6 +1,6 @@
 /*
  Program Name: Fetch array one row_numbers_&_string
- Description:  Returns a row as indexed array
+ Description:  Returns a row as indexed & numbered array
  Author:       Diego Sanchez
  Version:      1.0.
  Structure:
