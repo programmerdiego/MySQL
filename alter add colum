@@ -1,0 +1,42 @@
+/*
+ Program Name: Alter
+ Description:  Add colum
+ Author:       Diego Sanchez
+ Version:      1.0.
+ Structure:
+		 1: Main method
+		 2: Sample run
+*/
+
+/* 1: Main Method
+-------------------------------------------------------------- */
+<?php
+$con= mysqli_connect( "localhost", "admin", "password" );
+if( $con ) {
+	$select=mysqli_select_db( $con, "database" );
+	if( $select ) {
+		$sql="alter table one add column book4 varchar(20)";
+    $query=mysqli_query( $con,$sql);
+		if( $query ) {
+    echo  " Add columns successfully! ";
+    }  
+	}
+}
+else{
+	echo "It failed!";
+	}
+?>
+
+/* 2: Sample run
+-------------------------------------------------------------- */ 
+Add columns successfully!
+
+mysql> select * from one;
++----+--------+-------+--------+-------+
+| id | book1  | book2 | book3  | book4 |
++----+--------+-------+--------+-------+
+|  1 |  PHP   | JSP   | ASP    | NULL  |
+|  2 |  LAMP  | J2EE  | HTLM   | NULL  |
+|  3 | yellow | navy  | green  | NULL  |
++----+--------+-------+--------+-------+
+3 rows in set (0.00 sec)
