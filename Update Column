@@ -1,0 +1,42 @@
+/*
+ Program Name: Update Column
+ Description:  Update column one at a time
+ Author:       Diego Sanchez
+ Version:      1.0.
+ Structure:
+		 1: Main method
+		 2: Sample run
+*/
+
+/* 1: Main Method
+-------------------------------------------------------------- */
+<?php
+$con= mysqli_connect( "localhost", "admin", "password" );
+if( $con ) {
+	$select=mysqli_select_db( $con, "database" );
+	if( $select ) {
+  $sql="update one set book4='css' where id =2 ";
+  $query=mysqli_query( $con,$sql);
+		if( $query ) {
+    echo  " Add columns successfully! ";
+    }  
+	}
+}
+else{
+	echo "It failed!";
+	}
+?>
+
+/* 2: Sample run
+-------------------------------------------------------------- */ 
+Add columns successfully!
+
+mysql> select * from one;
++----+--------+-------+-------+-------+
+| id | book1  | book2 | book3 | book4 |
++----+--------+-------+-------+-------+
+|  1 |  PHP   | JSP   | ASP   | xml   |
+|  2 |  LAMP  | J2EE  | HTLM  | css   |
+|  3 | yellow | navy  | green | NULL  |
++----+--------+-------+-------+-------+
+3 rows in set (0.00 sec)
