@@ -1,0 +1,32 @@
+/*
+ Program Name: Connect and insert
+ Description:  Conect to the db and insert into a table.
+ Author:       Diego Sanchez
+ Version:      1.0.
+ Structure:
+		 1: Main method
+		 2: Sample run
+*/
+
+/* 1: Main Method
+-------------------------------------------------------------- */
+<?php
+$con= mysqli_connect( "localhost", "admin", "password" );
+if( $con ) {
+	$select=mysqli_select_db( $con, "database" );
+	if( $select ) {
+		$sql="insert into table (book1, book2, book3) value (\"yellow\",\"navy\",\"green\")";
+		$query=mysqli_query( $con,$sql);
+		if( $query ) {
+		echo  " The data was entered successfully! ";
+		}
+	}
+}
+else{
+	echo "It failed!";
+	}
+?>
+
+/* 2: Sample run
+-------------------------------------------------------------- */ 
+The data was entered successfully!
