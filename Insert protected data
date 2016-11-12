@@ -1,0 +1,63 @@
+/*
+ Program Name: Insert protected data
+ Description:  Inserts in database clean data to reduce sql injection attacks
+ Author:       Diego Sanchez
+ Version:      1.0.
+ Structure:
+     1: HTML
+		 2: Main method
+		 3: Sample run
+*/
+
+/* 1: HTML
+-------------------------------------------------------------- */
+<html>
+<form action="welcome2.php" method="post">
+<input type="text" name="book1"><br>
+<input type="text" name="book2"><br>
+<input type="text" name="book3"><br>
+<input type="text" name="book4"><br>
+<input type="submit" value="submit">
+</form>
+</html>
+
+/* 2: Main Method
+-------------------------------------------------------------- */
+<?php
+$con= mysqli_connect( "localhost", "username", "password" );
+if( $con ) {
+echo  " Connected successfully! <br><br>";
+}
+$select=mysqli_select_db( $con, "diego" );
+if( $select) {
+echo  " The database was selected!! <br><br>";
+}
+$clean1 = mysqli_real_escape_string($con, $_POST['book1']);
+$clean2 = mysqli_real_escape_string($con, $_POST['book2']);
+$clean3 = mysqli_real_escape_string($con, $_POST['book3']);
+$clean4 = mysqli_real_escape_string($con, $_POST['book4']);
+$sql="INSERT INTO one (book1, book2, book3, book4)
+VALUES ('$clean1', '$clean2', '$clean3','$clean4')";
+if( $sql ) {
+echo  " Entry was made!!! <br><br>";
+}
+mysqli_query($con,$sql) 
+
+?>
+/* 3: Sample run
+-------------------------------------------------------------- */ 
+Connected successfully! 
+
+The database was selected!! 
+
+Entry was made!!! 
+
+| 23 | diego  | sanchez    | my     | database |
+| 24 | new    | entry      | for    | database |
+| 25 |        |            |        |          |
+| 26 | 1      | 2          | 3      | 4        |
+| 27 | 1      | 2          | 3      | 4        |
+| 28 |        |            |        |          |
+| 29 | 11     | 22         | 33     | 44       |
++----+--------+------------+--------+----------+
+
