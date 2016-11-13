@@ -41,7 +41,8 @@ VALUES ('$clean1', '$clean2', '$clean3','$clean4')";
 if( $sql ) {
 echo  " Entry was made!!! <br><br>";
 }
-mysqli_query($con,$sql) 
+mysqli_query($con,$sql);
+mysqli_close($con);
 
 ?>
 /* 3: Sample run
